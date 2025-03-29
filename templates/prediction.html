@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="">
+
+<head>
+<title>Flood Prediction</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="static/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<style>
+.form-container-1, .form-container-2, .form-container-3 {
+  width: 32%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.form-container-1 {
+  margin-right: 2%;
+}
+
+.form-container-2 {
+  margin-right: 2%;
+}
+
+.form-container-3 {
+  margin-left: 0;
+}
+
+.form-wrapper::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media (max-width: 768px) {
+  .form-container-1, .form-container-2, .form-container-3 {
+    width: 100%;
+    float: none;
+    margin: 0 0 20px 0;
+  }
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 4px;
+  border-color: #353434;
+  background: #101010;
+  color: #ffffff;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  background: #101010;
+  border-color: rgba(255,255,255,0.4);
+  border-color: #59A209;
+  outline: none;
+}
+
+.submit-container {
+  margin-top: 20px;
+  color: #101010;
+}
+
+.submit-btn {
+  padding: 12px 30px;
+  background-color: #101010;
+  color: hwb(168 0% 0%);
+  border-color: #9f9d9d;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+</style>
+</head>
+
+<body id="top">
+<div class="wrapper row1">
+  <header id="header" class="hoc clear"> 
+    <div id="logo" class="fl_left">
+      <h1><a href="/">Flood Prediction</a></h1>
+    </div>
+    <nav id="mainav" class="fl_right">
+      <ul class="clear">
+        <li><a href="/">Home</a></li>
+        <li class="active"><a href="/predict">Prediction</a></li>
+        <li><a href="/graphs">Output Graphs</a></li>
+      </ul>
+    </nav>
+  </header>
+</div>
+<!-- ################################################################################################ -->
+
+<div class="wrapper bgded" style="background-image:url('static/images/backgrounds/02.jpg');">
+  <div class="split clear">
+    <section style="background-color: #101010;"> 
+      <h2 class="heading" style="color: white;">Flood Prediction</h2>
+        <center>
+        <form action="/prediction" method="POST">
+            <div class="form-wrapper">
+              <div class="form-container-1">
+                <!-- First 10 form groups go here -->
+                <div class="form-group">
+                  <label for="MonsoonIntensity">Monsoon Intensity</label>
+                  <input type="number" name="MonsoonIntensity" id="MonsoonIntensity" placeholder="Monsoon Intensity" required>
+                </div>
+                <div class="form-group">
+                  <label for="TopographyDrainage">Topography Drainage</label>
+                  <input type="number" name="TopographyDrainage" id="TopographyDrainage" placeholder="Topography Drainage" required>
+                </div>
+                <div class="form-group">
+                  <label for="RiverManagement">River Management</label>
+                  <input type="number" name="RiverManagement" id="RiverManagement" placeholder="River Management" required>
+                </div>
+                <div class="form-group">
+                  <label for="Deforestation">Deforestation</label>
+                  <input type="number" name="Deforestation" id="Deforestation" placeholder="Deforestation" required>
+                </div>
+                <div class="form-group">
+                  <label for="Urbanization">Urbanization</label>
+                  <input type="number" name="Urbanization" id="Urbanization" placeholder="Urbanization" required>
+                </div>
+                <div class="form-group">
+                  <label for="ClimateChange">Climate Change</label>
+                  <input type="number" name="ClimateChange" id="ClimateChange" placeholder="Climate Change" required>
+                </div>
+                <div class="form-group">
+                  <label for="DamsQuality">Dams Quality</label>
+                  <input type="number" name="DamsQuality" id="DamsQuality" placeholder="Dams Quality" required>
+                </div>
+              </div>
+              
+              <div class="form-container-2">
+                <div class="form-group">
+                  <label for="Siltation">Siltation</label>
+                  <input type="number" name="Siltation" id="Siltation" placeholder="Siltation" required>
+                </div>
+                <div class="form-group">
+                  <label for="AgriculturalPractices">Agricultural Practices</label>
+                  <input type="number" name="AgriculturalPractices" id="AgriculturalPractices" placeholder="Agricultural Practices" required>
+                </div>
+                <div class="form-group">
+                  <label for="Encroachments">Encroachments</label>
+                  <input type="number" name="Encroachments" id="Encroachments" placeholder="Encroachments" required>
+                </div>
+                <div class="form-group">
+                  <label for="IneffectiveDisasterPreparedness">Disaster Preparedness</label>
+                  <input type="number" name="IneffectiveDisasterPreparedness" id="IneffectiveDisasterPreparedness" placeholder="Disaster Preparedness" required>
+                </div>
+                <div class="form-group">
+                  <label for="DrainageSystems">Drainage Systems</label>
+                  <input type="number" name="DrainageSystems" id="DrainageSystems" placeholder="Drainage Systems" required>
+                </div>
+                <div class="form-group">
+                  <label for="CoastalVulnerability">Coastal Vulnerability</label>
+                  <input type="number" name="CoastalVulnerability" id="CoastalVulnerability" placeholder="Coastal Vulnerability" required>
+                </div>
+              </div>
+              
+              <div class="form-container-3">
+                <div class="form-group">
+                  <label for="Landslides">Landslides</label>
+                  <input type="number" name="Landslides" id="Landslides" placeholder="Land slides" required>
+                </div>
+                <div class="form-group">
+                  <label for="Watersheds">Watersheds</label>
+                  <input type="number" name="Watersheds" id="Watersheds" placeholder="Watersheds" required>
+                </div>
+                <div class="form-group">
+                  <label for="DeterioratingInfrastructure">Infrastructure</label>
+                  <input type="number" name="DeterioratingInfrastructure" id="DeterioratingInfrastructure" placeholder="Deteriorating Infrastructure" required>
+                </div>
+                <div class="form-group">
+                  <label for="PopulationScore">Population Score</label>
+                  <input type="number" name="PopulationScore" id="PopulationScore" placeholder="Population Score" required>
+                </div>
+                <div class="form-group">
+                  <label for="WetlandLoss">Wetland Loss</label>
+                  <input type="number" name="WetlandLoss" id="WetlandLoss" placeholder="Wet land Loss" required>
+                </div>
+                <div class="form-group">
+                  <label for="InadequatePlanning">Inadequate Planning</label>
+                  <input type="number" name="InadequatePlanning" id="InadequatePlanning" placeholder="Inadequate Planning" required>
+                </div>
+                <div class="form-group">
+                  <label for="PoliticalFactors">Political Factors</label>
+                  <input type="number" name="PoliticalFactors" id="PoliticalFactors" placeholder="Political Factors" required>
+                </div>
+              </div>
+            </div>
+            
+            <div class="submit-container">
+              <input type="submit" class="submit-btn" value="Submit">
+            </div>
+        </form>
+        <!-- </div> -->
+        </center>
+      <!-- <footer><a class="btn" href="#">View Details &raquo;</a></footer> -->
+       <br>
+       <div style="display: flex; align-items: center; text-align: center; justify-content: center;">
+        <h3 style="margin-right: 10px; color: white;">Prediction:</h3> 
+        <h3 style="color: hwb(168 0% 0%); background-color: #353434;">{{ prediction_text }}</h3>
+        <h3 style="margin-right: 10px; color: white; padding-left: 30px; ">Probability:</h3> 
+        <h3 style="color: hwb(168 0% 0%); background-color: #353434;">{{ prediction_value }}</h3>
+      </div>
+      
+      </section>
+  </div>
+</div>
+<!-- ################################################################################################ -->
+
+
+<div class="wrapper row5">
+  <br>
+  <br>
+</div>
+
+</body>
+</html>
